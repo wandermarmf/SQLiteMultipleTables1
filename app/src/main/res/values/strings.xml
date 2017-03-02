@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Programa ToDo</string>
+    <string name="action_adicionar_todo">Configurações</string>
+
+    <string name="novo_todo_titulo">Digite uma nova tarefa</string>
+    <string name="novo_todo_status">Escolha um status</string>
+    <string name="novo_todo_tags">Escolha a tag</string>
+    <string name="novo_todo_adicionar">Criar</string>
+
+    <string name="lista_todo_titulo">Tarefa</string>
+    <string name="lista_todo_status">Situação</string>
+    <string name="lista_todo_tags">Categoria</string>
+    <string name="todo_adiciona">Adiciona Tarefa</string>
+    <string name="novo_todo_gravar">Gravar</string>
+    <string name="novo_todo_cancelar">Cancelar</string>
+
+</resources>
