@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <LinearLayout
+        android:id="@+id/infoSection"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_toRightOf="@+id/view_todo_detalhe"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/lvtodo_note"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/lista_todo_titulo"
+            android:textSize="18sp" />
+
+        <RelativeLayout android:id="@+id/lvtodo_info_detalhe"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/lvtodo_status"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="@string/lista_todo_status"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/lvtodo_tags"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/lvtodo_status"
+                android:text="@string/lista_todo_tags"
+                android:textSize="15sp" />
+        </RelativeLayout>
+    </LinearLayout>
+</LinearLayout>
