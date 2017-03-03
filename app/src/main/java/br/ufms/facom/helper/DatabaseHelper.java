@@ -178,10 +178,7 @@ public class DatabaseHelper extends SQLiteOpenHelper
 
     public void loadTodoToListView(ListView lv, Context ctx) {
         ArrayList<Todo> allToDos = getAllToDos();
-		//ArrayList<Todo> arrayOfTodos = new ArrayList<Todo>();
-
 		ViewToDoAdapter adapter = new ViewToDoAdapter(ctx, allToDos);
-
 		lv.setAdapter(adapter);
     }
 
@@ -303,7 +300,17 @@ public class DatabaseHelper extends SQLiteOpenHelper
 		}
 		return tags;
 	}
-	
+	public String[] getAllTagsStrings() {
+		ArrayList<Tag> tags = getAllTags();
+		String[] strings = new String[tags.size()];
+
+		for (int i = 0; i < tags.size(); i++) {
+			strings[i] = tags.get(i).getTagName();
+		}
+
+        return strings;
+	}
+
 	/*
 	 * Updating a tag
 	 */

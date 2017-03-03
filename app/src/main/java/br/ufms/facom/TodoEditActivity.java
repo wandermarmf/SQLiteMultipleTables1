@@ -1,24 +1,21 @@
 package br.ufms.facom;
 
 import android.app.Activity;
-import android.net.Uri;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import com.google.android.gms.appindexing.Action;
-import com.google.android.gms.appindexing.AppIndex;
-import com.google.android.gms.appindexing.Thing;
-import com.google.android.gms.common.api.GoogleApiClient;
-
+import java.util.ArrayList;
 import java.util.List;
 
 import br.ufms.facom.helper.DatabaseHelper;
+import br.ufms.facom.model.Status;
+import br.ufms.facom.model.StatusList;
 import br.ufms.facom.model.Tag;
 import br.ufms.facom.model.Todo;
 import br.ufms.facom.model.TransportTodo;
-
+import br.ufms.facom.widget.MultiSelectSpinner;
 /**
  * Created by wandermar on 02/03/2017.
  */
@@ -53,24 +50,25 @@ public class TodoEditActivity extends Activity {
         }
 
         TextView todo_edit_note = (TextView) findViewById(R.id.todo_edit_note);
-        Spinner todo_edit_tag = (Spinner) findViewById(R.id.todo_edit_tag);
+
+        //MultiSelectSpinner mySpin = (MultiSelectSpinner)findViewById(R.id.my_spin);
+        MultiSelectSpinner todo_edit_tag = (MultiSelectSpinner)findViewById(R.id.todo_edit_tag);
         Spinner todo_edit_status = (Spinner) findViewById(R.id.todo_edit_status);
 
         // abre conexao com o banco
         db = new DatabaseHelper(getApplicationContext());
 
         // pega as categorias...
-        List<Tag> tags = db.getAllTags();
+        String[] arrayStr = db.getAllTagsStrings();
+        todo_edit_tag.setItems(arrayStr);
 
-        ArrayAdapter tagAdapter = new ArrayAdapter(this, R.layout.spinner, tags);
-
-        Spinner tagSpinner = (Spinner) findViewById(R.id.todo_edit_tag);
-        tagSpinner.setAdapter(tagAdapter);
-
+        ArrayList<Status> statuses = StatusList.getStatus();
+        ArrayAdapter tagAdapter = new ArrayAdapter(this, R.layout.spinner, statuses);
+        todo_edit_status.setAdapter(tagAdapter);
 
         todo_edit_note.setText(todo.getNote());
 
-        setSpinnerValue(todo_edit_tag, todo.getTagDesc());
+        //setSpinnerValue(todo_edit_tag, todo.getTagDesc());
         setSpinnerValue(todo_edit_status, todo.getStatusDesc());
 
     }

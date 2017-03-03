@@ -77,7 +77,7 @@ public class Todo
 	}
 
 	public String getTagDesc() {
-		String tags = "";
+		String tags = "importante, ";
 
 		for (Tag tag : listTags)
 		{
@@ -86,7 +86,10 @@ public class Todo
 
 		if (tags != "") {
 			tags = tags.substring(1, tags.length() - 2);
+		} else {
+			tags = "sem categoria";
 		}
+
 
 		return tags;
 	}
@@ -101,5 +104,6 @@ public class Todo
 		if (idx > -1) {
 			listTags.remove(idx);
 		}
+
 	}
 }
